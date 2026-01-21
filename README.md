@@ -12,7 +12,7 @@ incluindo autenticação, sessões, banco de dados e UI moderna.
 ## 🚀 Funcionalidades
 
 - ✅ Landing page com estética **glassmorphism**
-- ✅ Sidebar animada (sem JavaScript)
+- ✅ Sidebar animada
 - ✅ Sistema de **login e cadastro**
 - ✅ Senhas criptografadas
 - ✅ Sessão de usuário (login persistente)
