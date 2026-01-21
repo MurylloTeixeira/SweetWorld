@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | SweetWorld</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Fundo animado -->
+<div class="lava-bg"></div>
+
+<!-- Card de login -->
+<div class="login-card">
+    <h1>SweetWorld 🍰</h1>
+    <p>Entre na maior rede de confeiteiras do mundo</p>
+
+    <form method="post">
+        <input type="text" name="usuario" placeholder="Usuário ou e-mail" required>
+        <input type="password" name="senha" placeholder="Senha" required>
+
+        <button type="submit">Entrar</button>
+    </form> {% if erro %}
+<p style="color:#ff6e27; margin-bottom:15px;">{{ erro }}</p>
+{% endif %}
+
+
+    <span class="register">
+        Não tem conta?
+        <a href="{{ url_for('register') }}">Criar agora</a>
+    </span>
+</div>
+
+</body>
+</html>

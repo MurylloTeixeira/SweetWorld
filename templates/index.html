@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>SweetWorld | Confeiteiras Globais</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Fundo animado -->
+<div class="lava-bg"></div>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <!-- HOME -->
+    <a href="{{ url_for('home') }}" class="item">
+        <img src="{{ url_for('static', filename='icons/home.png') }}">
+        <span>Home</span>
+    </a>
+
+    <!-- FAQ -->
+    <a href="{{ url_for('faq') }}" class="item">
+        <img src="{{ url_for('static', filename='icons/chat.png') }}">
+        <span>FAQ</span>
+    </a>
+
+    <!-- LOGIN ou PERFIL (dinâmico) -->
+    {% if session.get("usuario") %}
+        <a href="{{ url_for('perfil') }}" class="item">
+            <img src="{{ url_for('static', filename='icons/avatar.png') }}">
+            <span>Perfil</span>
+        </a>
+    {% else %}
+        <a href="{{ url_for('login') }}" class="item">
+            <img src="{{ url_for('static', filename='icons/avatar.png') }}">
+            <span>Login</span>
+        </a>
+    {% endif %}
+
+    <!-- EXPLORE -->
+    <a href="{{ url_for('explore') }}" class="item">
+        <img src="{{ url_for('static', filename='icons/explore.png') }}">
+        <span>Explore</span>
+    </a>
+
+</aside>
+
+<!-- Conteúdo principal -->
+<main class="glass-card">
+
+    <h1>SweetWorld 🍰</h1>
+    <h2>Conectando confeiteiras e eventos no mundo todo</h2>
+
+    <p>
+        O <strong>SweetWorld</strong> é uma plataforma global para contratar
+        <strong>confeiteiras profissionais</strong> para festas, eventos e
+        celebrações especiais em qualquer lugar do mundo.
+    </p>
+
+    <p>
+        Funciona como uma <strong>rede social de confeiteiras</strong>, onde
+        profissionais divulgam seus trabalhos, recebem avaliações e são
+        contratadas diretamente pelos clientes.
+    </p>
+
+    <div class="actions">
+        <a href="{{ url_for('explore') }}">
+            <button>Explorar confeiteiras</button>
+        </a>
+
+        {% if not session.get("usuario") %}
+            <a href="{{ url_for('register') }}">
+                <button class="secondary">Criar conta</button>
+            </a>
+        {% endif %}
+    </div>
+
+</main>
+
+</body>
+</html>
